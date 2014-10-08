@@ -38,7 +38,17 @@ All of these tools should be included in the PATH variable to permit system-wide
 
 - Unzip scripts: tar -zxvf mirpipe.tar.gz
 - Add directory to $path variable: export PATH=$PATH:/current/mirpipe/dir
- 
+
+## Testing the installation
+
+Switch to the test subdirectory included in mirpipe and run ./test.sh. If you see a message indicating success, your installation is ready to go. Otherwise, missing dependencies will be shown as error messages.
+
+Usage
+=====
+
+mirpipe.pl -file <reads(.fastq/.fasta)> -ref <reference mirna(.fasta)> [options]
+Running MIRPIPEs main script mirpipe.pl without any parameters will print out available options.
+
 Contribution and contact
 ========================
 
