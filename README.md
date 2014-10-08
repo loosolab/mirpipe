@@ -46,7 +46,8 @@ Switch to the test subdirectory included in mirpipe and run ./test.sh. If you se
 Usage
 =====
 
-mirpipe.pl -file <reads(.fastq/.fasta)> -ref <reference mirna(.fasta)> [options]
+  mirpipe.pl -file <reads(.fastq/.fasta)> -ref <reference mirna(.fasta)> [options]
+
 Running MIRPIPEs main script mirpipe.pl without any parameters will print out available options.
 
 Contribution and contact
