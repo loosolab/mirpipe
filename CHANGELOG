@@ -1,0 +1,3 @@
+2014-10-06: New in mirpipe_1.2 (Jens Preussner)
+	* Fixed cluster overcounting due to read counts that actually are below the abundance threshold. 
+	* Complete code and code comment review
