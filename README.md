@@ -1,7 +1,7 @@
 mirpipe
 =======
 
-Source code for the MIRPIPE miRNA detection and quantification pipeline.
+Source code for the MIRPIPE miRNA detection and quantification pipeline. We also provide an easy accessible web surface with the latest MIRPIPE version under https://bioinformatics.mpi-bn.mpg.de.
 
 Introduction
 ============
