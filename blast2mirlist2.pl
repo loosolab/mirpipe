@@ -1,4 +1,4 @@
-#!/usr/env/perl -w
+#!/usr/bin/env perl -w
 # version	:1.2
 # author	:Jens Preussner<jens.preussner@mpi-bn.mpg.de>
 # 
@@ -301,7 +301,7 @@ foreach my $component (@cc) {
 		push(@mirlistOutput,[$vertex, $vertexSum, sprintf("%.2f",$ambigousSum/$vertexSum), $componentID, $mostabundantSequence, $mostabundantCount, $componentMembers])
 	}
 	foreach my $r (@componentReads) {
-		push(@clusterOutput,[$componentID, $reads{$r}{"seq"}, $reads{$r}{"count"}, $componentMembers]);
+		push(@clusterOutput,[$componentID, $reads{$r}{"seq"}, $reads{$r}{"count"}, $componentMembers, join(",",@{ $reads{$r}{"annotation"} })]);
 	}
 }
 
