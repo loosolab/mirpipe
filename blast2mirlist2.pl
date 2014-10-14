@@ -1,4 +1,4 @@
-#!/usr/bin/env perl -w
+#!/usr/bin/env perl
 # version	:1.2
 # author	:Jens Preussner<jens.preussner@mpi-bn.mpg.de>
 # 
@@ -259,6 +259,7 @@ foreach my $component (@cc) {
 my @fastaOutput = ();
 my @clusterOutput = ();
 my @mirlistOutput = ();
+my $maxComponentID = 0;
 @cc = $graph->connected_components();
 foreach my $component (@cc) {
 	my $componentID = "";
@@ -302,6 +303,7 @@ foreach my $component (@cc) {
 	}
 	foreach my $r (@componentReads) {
 		push(@clusterOutput,[$componentID, $reads{$r}{"seq"}, $reads{$r}{"count"}, $componentMembers, join(",",@{ $reads{$r}{"annotation"} })]);
+		$maxComponentID = $componentID if ( $componentID > $maxComponentID );
 	}
 }
 
@@ -312,7 +314,7 @@ foreach my $component (@cc) {
 # ------------------------------------------------------
 
 @fastaOutput = uniq(@fastaOutput);
-print "After cleaning, $#fastaOutput reads are left for output.\n" if $verbose;
+print "After cleaning, ".($#fastaOutput+1)." reads are left for output.\n" if $verbose;
 
 open(OUTF, ">".$blastFile.".fasta") || die ("Could not read file $blastFile.fasta\n");
 foreach my $f (@fastaOutput) {
@@ -331,7 +333,7 @@ my @clusterOutput_sorted = sort {
 	$b->[2] <=> $a->[2] 
 } @clusterOutput;
 
-print "After cleaning, $#clusterOutput_sorted microRNA clusters are left.\n" if $verbose;
+print "After cleaning, ".($maxComponentID+1)." microRNA clusters are left.\n" if $verbose;
 
 open(OUTC, ">".$blastFile.".cluster") || die ("Could not read file $blastFile.cluster\n");
 foreach (@clusterOutput_sorted) {
